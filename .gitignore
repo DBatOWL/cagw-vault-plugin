@@ -5,3 +5,4 @@ vendor/
 .gogradle/
 .gradle/
 
+/cagw-vault-plugin
