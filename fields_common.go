@@ -5,7 +5,7 @@
 
 package main
 
-import "github.com/hashicorp/vault/logical/framework"
+import "github.com/hashicorp/vault/sdk/framework"
 
 func addIssueAndSignCommonFields(fields map[string]*framework.FieldSchema) map[string]*framework.FieldSchema {
 
