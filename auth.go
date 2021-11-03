@@ -10,7 +10,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 
-	"github.com/hashicorp/vault/logical"
+	"github.com/hashicorp/vault/sdk/logical"
 	"github.com/pkg/errors"
 )
 

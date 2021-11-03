@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"github.com/pkg/errors"
 
-	"github.com/hashicorp/vault/logical"
-	"github.com/hashicorp/vault/logical/framework"
+	"github.com/hashicorp/vault/sdk/logical"
+	"github.com/hashicorp/vault/sdk/framework"
 )
 
 func (b *backend) opWriteConfigRole(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
