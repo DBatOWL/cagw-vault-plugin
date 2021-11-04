@@ -9,8 +9,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/hashicorp/vault/sdk/logical"
 	"github.com/hashicorp/vault/sdk/framework"
+	"github.com/hashicorp/vault/sdk/logical"
 )
 
 func (b *backend) opWriteConfigProfile(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {

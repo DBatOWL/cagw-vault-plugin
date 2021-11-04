@@ -22,8 +22,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/hashicorp/vault/sdk/logical"
 	"github.com/hashicorp/vault/sdk/framework"
+	"github.com/hashicorp/vault/sdk/logical"
 	"software.sslmate.com/src/go-pkcs12"
 )
 
@@ -147,7 +147,7 @@ func (b *backend) opWriteIssue(ctx context.Context, req *logical.Request, data *
 		return logical.ErrorResponse("CAGW enrollment response could not be parsed: %v", err), err
 	}
 
-	b.Logger().Debug(string(enrollmentResponse.Enrollment.Body))
+	b.Logger().Debug(enrollmentResponse.Enrollment.Body)
 	base64P12 := enrollmentResponse.Enrollment.Body
 	p12, err := base64.StdEncoding.DecodeString(base64P12)
 	if err != nil {
@@ -186,7 +186,7 @@ func (b *backend) opListIssue(ctx context.Context, req *logical.Request, data *f
 }
 
 func Pkcs12ToPem(p12 []byte, password string) (map[string]interface{}, error) {
-	privateKey, certificate, caCerts, err := pkcs12.DecodeChain([]byte(p12), password)
+	privateKey, certificate, caCerts, err := pkcs12.DecodeChain(p12, password)
 	if err != nil {
 		return nil, fmt.Errorf("error decoding PKCS12: %s", err)
 	}
