@@ -36,7 +36,5 @@ func getTLSConfig(ctx context.Context, req *logical.Request, configCa *CAGWConfi
 		RootCAs: certPool,
 	}
 
-	tlsClientConfig.BuildNameToCertificate()
-
 	return &tlsClientConfig, nil
 }

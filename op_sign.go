@@ -61,6 +61,14 @@ func (b *backend) opWriteSign(ctx context.Context, req *logical.Request, data *f
 		return logical.ErrorResponse("CSR could not be decoded"), nil
 	}
 
+	csr, err := x509.ParseCertificateRequest(csrBlock.Bytes)
+	if err != nil {
+		return logical.ErrorResponse("CSR could not be parsed"), err
+	}
+
+	// Cool, now what?
+	fmt.Println(csr.IPAddresses)
+
 	csrBase64 := base64.StdEncoding.EncodeToString(csrBlock.Bytes)
 
 	configRole, err := getConfigRole(ctx, req, roleName)
